@@ -55,5 +55,32 @@ class UsuarioService{
             throw new Error("Erro ao excluir dados do usuario")
         }
     }
+
+    async updateDataUser(dto){
+        const usuario = database.dbo_USUARIO.findOne({
+            where: {
+                id: dto.id
+            }
+        })
+
+        if(!usuario){
+            throw new Error("Usuario não registrado no banco")
+        }
+
+        try{
+            usuario.codigo          = dto.codigo
+            usuario.nome            = dto.nome
+            usuario.senha           = dto.senha
+            usuario.per_alterar     = dto.per_alterar
+            usuario.per_excluir     = dto.per_excluir
+            usuario.super_usuario   = dto.super_usuario
+
+            await usuario.save()
+            return await usuario.reload()
+        } catch(err){
+            throw new Error("Erro ao atualizar dados")
+        }   
+        
+    }
 }
 module.exports = UsuarioService

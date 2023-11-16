@@ -2,24 +2,27 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('dbo_CONTROL', {
+    await queryInterface.createTable('dbo_FICHAs', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      firstName: {
+      matricula: {
+        type: Sequelize.INTEGER
+      },
+      nome: {
         type: Sequelize.STRING
       },
-      lastName: {
+      setor: {
         type: Sequelize.STRING
       },
-      email: {
-        type: Sequelize.STRING
+      classe: {
+        type: Sequelize.CHAR
       },
-      ulaces: {
-        type: Sequelize.DATE
+      tamanho: {
+        type: Sequelize.CHAR
       },
       createdAt: {
         allowNull: false,
@@ -32,6 +35,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('dbo_CONTROL');
+    await queryInterface.dropTable('dbo_FICHAs');
   }
 };

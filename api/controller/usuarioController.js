@@ -34,5 +34,15 @@ class UsuarioController{
             res.status(400).send({message: err.message})
         }
     }
+
+    static async deleteUser(req, res){
+        const { id } = req.params
+        try{
+            await usuarioService.deleteDataUser(id)
+            res.status(200).send({message: "Dados excluidos com sucesso"})
+        } catch(err) {
+            res.status(400).send({message: err.message})
+        }
+    }
 }
 module.exports = UsuarioController

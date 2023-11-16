@@ -43,5 +43,17 @@ class UsuarioService{
             throw new Error("Erro ao inserir dados no banco")
         } 
     }
+
+    async deleteDataUser(id){
+        try{
+            database.dbo_USUARIO.destroy({
+                where: {
+                    id: id
+                }
+            })
+        } catch(err) {
+            throw new Error("Erro ao excluir dados do usuario")
+        }
+    }
 }
 module.exports = UsuarioService

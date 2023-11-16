@@ -1,6 +1,6 @@
 const { Router }        =   require("express")
 
-const FichasController = require("../controller/fichasController")
+const FichasController  = require("../controller/fichasController")
 const router = Router()
 
 router

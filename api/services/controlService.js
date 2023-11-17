@@ -60,7 +60,7 @@ class ControlService{
     }
 
     async updateDataById(dto){
-        const control = database.dbo_CONTROL.findOne({
+        const control = await database.dbo_CONTROL.findOne({
             where: {
                 id: dto.id
             }

@@ -57,16 +57,15 @@ class UsuarioService{
     }
 
     async updateDataUser(dto){
-        const usuario = database.dbo_USUARIO.findOne({
+        const usuario = await database.dbo_USUARIO.findOne({
             where: {
                 id: dto.id
             }
         })
-
+       
         if(!usuario){
             throw new Error("Usuario não registrado no banco")
         }
-
         try{
             usuario.codigo          = dto.codigo
             usuario.nome            = dto.nome
@@ -78,7 +77,8 @@ class UsuarioService{
             await usuario.save()
             return await usuario.reload()
         } catch(err){
-            throw new Error("Erro ao atualizar dados")
+            console.error("Erro ao atualizar dados:", err);
+            throw new Error("Erro ao atualizar dados");
         }   
         
     }

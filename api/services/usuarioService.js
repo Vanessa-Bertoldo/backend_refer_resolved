@@ -77,7 +77,6 @@ class UsuarioService{
             await usuario.save()
             return await usuario.reload()
         } catch(err){
-            console.error("Erro ao atualizar dados:", err);
             throw new Error("Erro ao atualizar dados");
         }   
         

@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('dbo_CONTROLs', {
+    await queryInterface.createTable('tb_historicos', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -10,31 +10,24 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       nome: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       setor: {
         type: Sequelize.STRING
       },
-      senha: {
+      classe: {
         type: Sequelize.STRING
       },
-      vrre: {
-        type: Sequelize.INTEGER
-      },
-      ulaces: {
+      data_pagamento: {
         type: Sequelize.DATE
       },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+      tipo_pagamento: {
+        type: Sequelize.STRING
       }
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('dbo_CONTROLs');
+    await queryInterface.dropTable('tb_historicos');
   }
 };

@@ -2,15 +2,15 @@ const database = require("../models")
 
 class UsuarioService{
     async searchAllData(){
-        const usuarios = database.dbo_USUARIO.findAll()
+        const usuarios = database.TB_USUARIO.findAll()
         return usuarios
     }
 
     async searchDataUserById(id){
         try{
-            const usuario = database.dbo_USUARIO.findOne({
+            const usuario = database.TB_USUARIO.findOne({
                 where:{
-                    id: id
+                    ID: id
                 }
             })
             return usuario
@@ -20,23 +20,24 @@ class UsuarioService{
     }
 
     async insertUserinDatabase(dto){
-        /*const usuario = await database.dbo_USUARIO.findOne({
+        const usuario = await database.TB_USUARIO.findOne({
             where: {
-                id: dto.id
+                nome: dto.nome
             }
         })
 
         if (!usuario){
             throw new Error("usuario já registrado no banco")
-        }*/
+        }
 
         try{
-            const newUsuario = database.dbo_USUARIO.create({
+            const newUsuario = database.TB_USUARIO.create({
                 nome:           dto.senha,
                 senha:          dto.senha,
-                per_alterar:    dto.per_alterar,
-                per_excluir:    dto.per_excluir,
-                super_usuario:  dto.super_usuario
+                setor:          dto.setor,
+                classe:         dto.classe,
+                alter_ficha:    dto.alter_ficha,
+                delete_ficha:   dto.delete_ficha,
             })
             return newUsuario
         } catch(err) {
@@ -46,7 +47,7 @@ class UsuarioService{
 
     async deleteDataUser(id){
         try{
-            database.dbo_USUARIO.destroy({
+            database.TB_USUARIO.destroy({
                 where: {
                     id: id
                 }
@@ -57,7 +58,7 @@ class UsuarioService{
     }
 
     async updateDataUser(dto){
-        const usuario = await database.dbo_USUARIO.findOne({
+        const usuario = await database.TB_USUARIO.findOne({
             where: {
                 id: dto.id
             }
@@ -67,12 +68,12 @@ class UsuarioService{
             throw new Error("Usuario não registrado no banco")
         }
         try{
-            usuario.codigo          = dto.codigo
-            usuario.nome            = dto.nome
-            usuario.senha           = dto.senha
-            usuario.per_alterar     = dto.per_alterar
-            usuario.per_excluir     = dto.per_excluir
-            usuario.super_usuario   = dto.super_usuario
+            usuario.nome            = dto.senha,
+            usuario.senha           = dto.senha,
+            usuario.setor           = dto.setor,
+            usuario.classe          = dto.classe,
+            usuario.alter_ficha     = dto.alter_ficha,
+            usuario.delete_ficha    = dto.delete_ficha
 
             await usuario.save()
             return await usuario.reload()

@@ -2,34 +2,46 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('tb_usuarios', {
-      id: {
+    await queryInterface.createTable('TB_USUARIOs', {
+      ID: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      nome: {
+      NOME: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      setor: {
+      SENHA: {
+        allowNull: false,
         type: Sequelize.STRING
       },
-      classe: {
+      SETOR: {
         type: Sequelize.STRING
       },
-      alter_historico: {
+      CLASSE: {
+        type: Sequelize.STRING
+      },
+      ALTER_FICHA: {
         defaultValue: 0,
         type: Sequelize.INTEGER
       },
-      delet_historico: {
+      DELETE_FICHA: {
         defaultValue: 0,
         type: Sequelize.INTEGER
       },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      }
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('tb_usuarios');
+    await queryInterface.dropTable('TB_USUARIOs');
   }
 };

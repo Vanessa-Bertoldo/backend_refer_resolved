@@ -26,7 +26,7 @@ class UsuarioService{
             }
         })
 
-        if (!usuario){
+        if (usuario){
             throw new Error("usuario já registrado no banco")
         }
 

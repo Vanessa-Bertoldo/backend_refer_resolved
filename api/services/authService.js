@@ -3,9 +3,9 @@ const database = require("../models")
 class AuthService{
     async login(dto){
         const user = await database.TB_USUARIO.findOne({
-            attributes: ['id', 'nome', 'senha'],
+            attributes: ['id', 'usuario', 'senha'],
             where: {
-                nome: dto.nome
+                nome: dto.usuario
             }
         })
 

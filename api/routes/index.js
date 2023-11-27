@@ -3,6 +3,7 @@ const bodyParser    = require('body-parser')
 const usuario       = require("./usuarioRouter")
 const ficha         = require("./fichaRouter")
 const ticket        = require("./ticketRouter")
+const auth          = require("./authRouter")
 
 
 module.exports = app => {
@@ -10,7 +11,10 @@ module.exports = app => {
     bodyParser.json(),
     usuario,
     ficha,
-    ticket
+    ticket,
+    auth
+    
+
     
   )
 }

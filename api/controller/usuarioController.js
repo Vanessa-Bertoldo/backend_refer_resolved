@@ -25,10 +25,10 @@ class UsuarioController{
     }
 
     static async insertDataUsuario(req, res){
-        const { nome, senha, per_alterar, per_excluir, super_usuario } = req.body
+        const { nome, user, senha, per_alterar, per_excluir, super_usuario } = req.body
 
         try{
-            const usuario = await usuarioService.insertUserinDatabase({ nome, senha, per_alterar, per_excluir, super_usuario })
+            const usuario = await usuarioService.insertUserinDatabase({ nome, user, senha, per_alterar, per_excluir, super_usuario })
             res.status(200).json(usuario)
         } catch(err){
             res.status(400).send({message: err.message})
@@ -47,10 +47,10 @@ class UsuarioController{
 
     static async updateDataUser(req, res){
         const { id } = req.params
-        const { nome, codigo, senha, per_alterar, per_excluir, super_usuario} = req.body
+        const { nome, codigo, user, senha, per_alterar, per_excluir, super_usuario} = req.body
 
         try{
-            const usuario = await usuarioService.updateDataUser({id, codigo, nome, senha, per_alterar, per_excluir, super_usuario})
+            const usuario = await usuarioService.updateDataUser({id, codigo, user, nome, senha, per_alterar, per_excluir, super_usuario})
             res.status(200).json(usuario)
         } catch(err) {
             res.status(400).send({message: err.message})

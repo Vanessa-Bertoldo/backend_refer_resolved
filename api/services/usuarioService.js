@@ -1,6 +1,7 @@
 const database = require("../models")
 
 class UsuarioService{
+
     async searchAllData(){
         const usuarios = database.TB_USUARIO.findAll()
         return usuarios
@@ -31,14 +32,16 @@ class UsuarioService{
         }
 
         try{
-            const newUsuario = database.TB_USUARIO.create({
+            const newUsuario = await database.TB_USUARIO.create({
                 nome:           dto.senha,
+                usuario:        dto.user,
                 senha:          dto.senha,
                 setor:          dto.setor,
                 classe:         dto.classe,
                 alter_ficha:    dto.alter_ficha,
                 delete_ficha:   dto.delete_ficha,
             })
+            console.log("newUser ", dto)
             return newUsuario
         } catch(err) {
             throw new Error("Erro ao inserir dados no banco")
@@ -69,6 +72,7 @@ class UsuarioService{
         }
         try{
             usuario.nome            = dto.senha,
+            usuario.usuario         = dto.user,
             usuario.senha           = dto.senha,
             usuario.setor           = dto.setor,
             usuario.classe          = dto.classe,

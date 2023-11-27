@@ -13,6 +13,9 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
+      USUARIO: {
+        type: Sequelize.STRING
+      },
       SENHA: {
         allowNull: false,
         type: Sequelize.STRING

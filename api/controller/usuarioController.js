@@ -25,10 +25,10 @@ class UsuarioController{
     }
 
     static async insertDataUsuario(req, res){
-        const { nome, user, senha, setor, classe,  per_alterar, per_excluir, super_usuario } = req.body
+        const { nome, user, senha, setor, classe,  alter_ficha, delete_ficha } = req.body
 
         try{
-            const usuario = await usuarioService.insertUserinDatabase({ nome, user, senha, setor, classe,  per_alterar, per_excluir, super_usuario })
+            const usuario = await usuarioService.insertUserinDatabase({ nome, user, senha, setor, classe,  alter_ficha, delete_ficha})
             res.status(200).json(usuario)
         } catch(err){
             res.status(400).send({message: err.message})

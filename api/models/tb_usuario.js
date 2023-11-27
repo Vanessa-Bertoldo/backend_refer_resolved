@@ -14,7 +14,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   TB_USUARIO.init({
-    ID: DataTypes.INTEGER,
     NOME: DataTypes.STRING,
     USUARIO: DataTypes.STRING,
     SENHA: DataTypes.STRING,

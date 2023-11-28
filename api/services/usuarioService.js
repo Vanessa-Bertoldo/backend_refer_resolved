@@ -33,7 +33,7 @@ class UsuarioService{
 
         try{
             const newUsuario = await database.TB_USUARIO.create({
-                nome:           dto.senha,
+                nome:           dto.nome,
                 usuario:        dto.user,
                 senha:          dto.senha,
                 setor:          dto.setor,
@@ -44,7 +44,7 @@ class UsuarioService{
             console.log("newUser ", dto)
             return newUsuario
         } catch(err) {
-            throw new Error("Erro ao inserir dados no banco")
+            throw new Error("Erro ao inserir dados no banco",err.message)
         } 
     }
 

@@ -9,28 +9,28 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      NOME: {
+      nome: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      USUARIO: {
+      usuario: {
         type: Sequelize.STRING
       },
-      SENHA: {
+      senha: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      SETOR: {
+      setor: {
         type: Sequelize.STRING
       },
-      CLASSE: {
+      classe: {
         type: Sequelize.STRING
       },
-      ALTER_FICHA: {
+      alter_ficha: {
         defaultValue: 0,
         type: Sequelize.INTEGER
       },
-      DELETE_FICHA: {
+      delete_ficha: {
         defaultValue: 0,
         type: Sequelize.INTEGER
       },

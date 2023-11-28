@@ -1,4 +1,4 @@
-const TicketService = require("../services/TicketService")
+const TicketService = require("../services/ticketService")
 
 const ticketService = new TicketService()
 

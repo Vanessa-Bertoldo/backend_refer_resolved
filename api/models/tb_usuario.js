@@ -14,13 +14,13 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   TB_USUARIO.init({
-    NOME: DataTypes.STRING,
-    USUARIO: DataTypes.STRING,
-    SENHA: DataTypes.STRING,
-    SETOR: DataTypes.STRING,
-    CLASSE: DataTypes.STRING,
-    ALTER_FICHA: DataTypes.INTEGER,
-    DELETE_FICHA: DataTypes.INTEGER
+    nome: DataTypes.STRING,
+    usuario: DataTypes.STRING,
+    senha: DataTypes.STRING,
+    setor: DataTypes.STRING,
+    classe: DataTypes.STRING,
+    alter_ficha: DataTypes.INTEGER,
+    delete_ficha: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'TB_USUARIO',

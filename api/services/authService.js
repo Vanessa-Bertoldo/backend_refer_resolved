@@ -6,7 +6,7 @@ class AuthService{
         const user = await database.TB_USUARIO.findOne({
             attributes: ['id', 'usuario', 'senha'],
             where: {
-                nome: dto.usuario
+                usuario: dto.user
             }
         })
         console.log("user ", user)
@@ -15,9 +15,7 @@ class AuthService{
             throw new Error('Usuario não cadastrado')
         }
 
-        //const equalPassw = await compare(dto.senha, user.senha)
-
-        const equalPassw = dto.senha === user.senha ? true : false
+        const equalPassw = dto.password === user.senha ? true : false
 
         if(!equalPassw){
             throw new Error('Usuario ou senha inválido')

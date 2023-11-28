@@ -3,12 +3,13 @@ const authService = new AuthService()
 
 class AuthController{
     static async login(req, res){
-        const { usuario , senha } = req.body
+        const { user , password } = req.body
+        console.log("requisição", req.body)
         try{
-            const user = await authService.login({usuario, senha})
-            return res.status(200).json({status: 200, message:"Sucesso"})
+            const usuario = await authService.login({ user , password })
+            return res.status(200).json({status: 200, message:"Sucesso", usuario: usuario})
         }catch(err){
-            res.status(400).send({status:400, message: err.message})
+            return res.status(400).json({status:400, message: err.message})
         }
     }
 }

@@ -1,8 +1,16 @@
 const express = require('express')
 const routes = require('./routes')
+const cors = require('cors');
 
 const app = express()
-const port = 3000
+
+app.use(cors({
+    origin: 'http://localhost:3000',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true, // Habilitar cookies em solicitações CORS
+}));
+
+const port = 3030
 
 routes(app)
 

@@ -22,7 +22,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       classe: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       tamanho: {
         type: Sequelize.CHAR

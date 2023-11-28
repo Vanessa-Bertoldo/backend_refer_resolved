@@ -18,7 +18,7 @@ class FichaController{
             const newFicha = await fichaService.insertData({matricula, nome, setor, classe, tamanho })
             return res.status(200).json(newFicha)
         } catch(err){
-            return res.status(400).send({message: err.message})
+            return res.status(400).json({status: 400, message: err.message})
         }
     }
 

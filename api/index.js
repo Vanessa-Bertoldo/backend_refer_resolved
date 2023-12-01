@@ -1,16 +1,21 @@
 const express = require('express')
 const routes = require('./routes')
 const cors = require('cors');
+const { createProxyMiddleware } = require('http-proxy-middleware');
 
 const app = express()
 
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: (origin, callback) => {
+      callback(null, true);
+    },
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true, // Habilitar cookies em solicitações CORS
-}));
+    credentials: true,
+  }));
 
-const port = 3030
+app.use('/api', createProxyMiddleware({ target: 'http://192.168.0.8:3040', changeOrigin: true }));
+
+const port = 3040
 
 routes(app)
 

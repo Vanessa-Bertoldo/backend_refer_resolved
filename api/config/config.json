@@ -2,7 +2,7 @@
   "development": {
     "username": "ESTAGIARIA",
     "password": "Nacj@123",
-    "database": "REFEITORIO_NOVO",
+    "database": "NewRefector",
     "host": "192.168.0.8",
     "dialect": "mssql"
   },

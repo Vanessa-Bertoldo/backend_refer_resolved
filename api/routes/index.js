@@ -13,8 +13,5 @@ module.exports = app => {
     ficha,
     ticket,
     auth
-    
-
-    
   )
 }

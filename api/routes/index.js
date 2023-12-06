@@ -4,6 +4,7 @@ const usuario       = require("./usuarioRouter")
 const ficha         = require("./fichaRouter")
 const ticket        = require("./ticketRouter")
 const auth          = require("./authRouter")
+const nutrition     = require("./nutritionRouter")
 
 
 module.exports = app => {
@@ -12,6 +13,7 @@ module.exports = app => {
     usuario,
     ficha,
     ticket,
-    auth
+    auth,
+    nutrition
   )
 }

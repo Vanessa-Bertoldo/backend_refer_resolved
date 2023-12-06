@@ -20,14 +20,6 @@ class UsuarioService{
         }
     }
 
-    async searchDataFilter(dto){
-        try{
-            
-        } catch(error) {
-            
-        }
-    }
-
     async insertUserinDatabase(dto){
         const usuario = await database.TB_USUARIO.findOne({
             where: {

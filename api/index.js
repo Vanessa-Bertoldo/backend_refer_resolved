@@ -13,7 +13,7 @@ app.use(cors({
     credentials: true,
   }));
 
-app.use('/api', createProxyMiddleware({ target: 'http://192.168.0.8:3040', changeOrigin: true }));
+app.use('/api', createProxyMiddleware({ target: 'http://192.168.0.8:3050', changeOrigin: true }));
 
 const port = 3050
 

@@ -19,6 +19,7 @@ class FichaService{
 
         try{
             const newFicha = database.TB_FICHA.create({
+                id:                 dto.matricula,
                 matricula:          dto.matricula,
                 nome:               dto.nome,
                 setor:              dto.setor,

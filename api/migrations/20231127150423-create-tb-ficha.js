@@ -6,7 +6,7 @@ module.exports = {
       id: {
         primaryKey: true,
         allowNull: false,
-        autoIncrement: true,
+        //autoIncrement: true,
         type: Sequelize.INTEGER
       },
       matricula: {

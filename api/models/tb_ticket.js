@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      TB_TICKET.belongsTo(models.TB_FICHA, { as: "fichas", foreignKey: "id" })
     }
   }
   TB_TICKET.init({
@@ -25,6 +26,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'TB_TICKET',
+    tableName: 'TB_TICKET'
   });
   return TB_TICKET;
 };

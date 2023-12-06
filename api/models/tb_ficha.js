@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      TB_FICHA.hasMany(models.TB_TICKET, { as: "tickets", foreignKey: "id" })
+     
     }
   }
   TB_FICHA.init({
@@ -22,6 +24,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'TB_FICHA',
+    tableName: 'TB_FICHA'
   });
   return TB_FICHA;
 };

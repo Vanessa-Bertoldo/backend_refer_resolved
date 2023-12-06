@@ -1,15 +1,15 @@
 {
-  "development": {
+  "test": {
     "username": "ESTAGIARIA",
     "password": "Nacj@123",
     "database": "NewRefector",
     "host": "192.168.0.8",
     "dialect": "mssql"
   },
-  "test": {
+  "development": {
     "username": "root",
     "password": null,
-    "database": "database_test",
+    "database": "backresolved",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },

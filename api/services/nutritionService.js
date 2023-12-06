@@ -2,9 +2,9 @@ const database = require("../models")
 
 class NutritionService{
     
-    async searchDataFilter(modo_pagamento){
+    async searchDataFilter(matricula){
         try{
-            const data = await database.TB_TICKET.findAll({
+            /*const data = await database.TB_TICKET.findAll({
                 include: [
                     {
                         model: database.TB_FICHA,
@@ -15,6 +15,20 @@ class NutritionService{
                 ],
                 where: {
                     modo_pagamento: modo_pagamento
+                }
+            })*/
+           
+            const data = await database.TB_FICHA.findAll({
+                include: [
+                    {
+                        model: database.TB_TICKET,
+                        as: "tickets",
+                        attributes: ['matricula', 'data', 'modo_pagamento', 'valor_pago', 'tamanho'],
+                        
+                    },
+                ],
+                where: {
+                    matricula: matricula
                 }
             })
             return data

@@ -4,7 +4,6 @@ const nutritionService = new NutritionService()
 
 class NutritionController{
     static async filterData(req, res){
-        //const { dataInicial, dataFinal, classe, modo_pagamento } = req.body
         const { classe, dataInicial, dataFinal, modo_pagamento } = req.body
 
         try{

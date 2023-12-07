@@ -9,9 +9,9 @@ class NutritionController{
 
         try{
             const data = await nutritionService.searchDataFilter({ classe, dataInicial, dataFinal, modo_pagamento })
-            res.status(200).json(data)
+            return res.status(200).json(data)
         }catch(error){
-            res.status(400).send({ message: error.message })
+            return res.status(400).send({ message: error.message })
         }
     }
 }

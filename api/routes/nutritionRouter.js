@@ -4,6 +4,6 @@ const NutritionController = require("../controller/nutritionController")
 const router = Router()
 
 router  
-    .get('/nutrition', NutritionController.filterData)
+    .post('/nutrition', NutritionController.filterData)
 
 module.exports = router

@@ -22,7 +22,6 @@ class TicketService{
     async insertData(dto){
         try{
             const newTicket = database.TB_TICKET.create({
-                id:                     dto.matricula,
                 matricula:              dto.matricula,
                 data:                   dto.data,
                 modo_pagamento:         dto.modo_pagamento,

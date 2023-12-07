@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      TB_FICHA.hasMany(models.TB_TICKET, { as: "tickets", foreignKey: "id" })
+      TB_FICHA.hasMany(models.TB_TICKET, { as: "tickets", foreignKey: "matricula" })
      
     }
   }

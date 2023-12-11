@@ -5,27 +5,27 @@ class NutritionService{
     
     async searchDataFilter(dto){
         try{
-            const data = await database.TB_FICHA.findAll({
-                include: [
-                    {
-                        model: database.TB_TICKET,
-                        as: "tickets",
-                        attributes: ['matricula', 'data', 'modo_pagamento', 'valor_pago', 'tamanho'],
-                        where: {
-                            data: {
-                                [Op.between]: [dto.dataInicial, dto.dataFinal]
-                            },
-                            modo_pagamento: dto.modo_pagamento
-                        }
-                    },
-                ],
+            const data = await database.TB_TICKET.findAll({
                 where: {
-                    classe: dto.classe
-                }
-            })
+                  data: {
+                    [Op.between]: [dto.dataInicial, dto.dataFinal]
+                  },
+                  //modo_pagamento: dto.modo_pagamento
+                },
+                include: [
+                  {
+                    model: database.TB_FICHA,
+                    as: "ficha", 
+                    attributes: ['id', 'nome', 'setor', 'classe', 'tamanho'],
+                    where: {
+                      classe: dto.classe
+                    }
+                  },
+                ],
+              });
             return data
         } catch(error) {
-            throw new Error("Erro ao filtrar dados ", error)
+            throw new Error(error)
         }
     }
 }

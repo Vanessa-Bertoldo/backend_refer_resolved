@@ -20,7 +20,7 @@ module.exports = {
         type: Sequelize.DATE,
         validate: {
           isDate: true,
-          isAfter: new Date().toISOString(),
+          //isAfter: new Date().toISOString(),
         },
       },
       modo_pagamento: {

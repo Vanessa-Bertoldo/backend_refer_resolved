@@ -7,8 +7,8 @@
     "dialect": "mssql"
   },
   "development": {
-    "username": "vanessa",
-    "password": "123",
+    "username": "root",
+    "password": null,
     "database": "backresolved",
     "host": "127.0.0.1",
     "dialect": "mysql"

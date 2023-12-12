@@ -17,7 +17,11 @@ module.exports = {
         },
       },
       data: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        validate: {
+          isDate: true,
+          isAfter: new Date().toISOString(),
+        },
       },
       modo_pagamento: {
         type: Sequelize.STRING
@@ -29,7 +33,11 @@ module.exports = {
         type: Sequelize.FLOAT
       },
       registro: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        validate: {
+          isDate: true,
+          isAfter: new Date().toISOString(),
+        },
       },
       tamanho: {
         type: Sequelize.CHAR

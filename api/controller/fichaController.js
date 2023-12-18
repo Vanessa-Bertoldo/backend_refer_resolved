@@ -41,6 +41,16 @@ class FichaController{
             res.status(400).send({message: err.message})
         }
     }
+
+    static async searchNameInFicha(req, res){
+        const { name } = req.body
+        try{
+            const fichas = await fichaService.searchByName(name)
+            res.status(200).json({status: 200, fichas})
+        } catch(err){
+            res.status(400).send({message: err.message})
+        }
+    }
 }
 
 module.exports = FichaController

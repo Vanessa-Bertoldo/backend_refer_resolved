@@ -8,5 +8,7 @@ router
     .get('/ficha/id/:id',FichaController.searchFichaById)
     .delete('/ficha/id/:id', FichaController.deleteFicha)
     .post('/ficha', FichaController.insertData)
+    .post('/fichaSearch', FichaController.searchNameInFicha)
+
 
 module.exports = router

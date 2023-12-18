@@ -56,6 +56,21 @@ class FichaService{
             throw new Error("Erro ao excluir dados")
         }
     }
+
+    async searchByName(name){
+        try{
+            const fichas = await database.TB_FICHA.findAll({
+                where: {
+                    nome: {
+                        [database.Sequelize.Op.like]: `%${name}%`
+                    }
+                }
+            })
+            return fichas
+        } catch(err){
+            throw new Error("Erro ao pesquisar ficha")
+        }
+    }
 }
 
 module.exports = FichaService

@@ -9,5 +9,6 @@ router
     .post('/ticket', TicketController.insertData)
     .delete('/ticket/id/:id', TicketController.deleteData)
     .post('/filterDataByDate', TicketController.getTotTicketDate)
+    .post('/filterPayment', TicketController.sumPayment)
 
 module.exports = router    

@@ -110,5 +110,47 @@ class TicketService{
         }
     }
 
+    async sumPayment(dto) {
+        try {
+            let includeTbFicha;
+            if (dto.classe !== null && dto.classe !== "" && dto.classe !== "TODOS") {
+                includeTbFicha = [
+                    {
+                        model: database.TB_FICHA,
+                        as: "ficha",
+                        attributes: ['classe'],
+                        where: {
+                            classe: dto.classe,
+                        },
+                    },
+                ];
+            }
+
+            const resultado = await database.TB_TICKET.findAll({
+                attributes: [
+                    'modo_pagamento',
+                    [
+                        Sequelize.literal(`ROUND(SUM(valor_pago), 2)`),
+                        'soma_total'
+                    ]
+                ],
+                where: {
+                    data: {
+                        [Op.between]: [dto.dataInicial, dto.dataFinal]
+                    }
+                },
+                group: ['modo_pagamento'],
+                raw: true,
+                include: includeTbFicha,
+            });
+    
+            console.log(resultado);
+            return resultado;
+        } catch (error) {
+            console.error('Erro ao obter soma por modo de pagamento e data:', error);
+            throw error;
+        }
+    }
+
 }
 module.exports = TicketService

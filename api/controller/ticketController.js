@@ -47,5 +47,15 @@ class TicketController{
             return res.status(400).send({message: err.message})
         }
     }
+
+    static async sumPayment(req, res){
+        const { dataFinal, dataInicial, classe } = req.body
+        try{
+            const tickets = await ticketService.sumPayment({ dataFinal, dataInicial, classe })
+            return res.status(200).send({status: 200, data: tickets})
+        } catch(err){
+            return res.status(400).send({message: err.message})
+        }
+    }
 }
 module.exports = TicketController

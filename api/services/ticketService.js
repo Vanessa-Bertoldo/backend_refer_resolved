@@ -132,8 +132,10 @@ class TicketService{
                     [
                         Sequelize.literal(`ROUND(SUM(valor_pago), 2)`),
                         'soma_total'
-                    ]
+                    ],
+                    [TB_TICKET.sequelize.fn('count', TB_TICKET.sequelize.col('*')), 'quantidadeTickets'],
                 ],
+
                 where: {
                     data: {
                         [Op.between]: [dto.dataInicial, dto.dataFinal]

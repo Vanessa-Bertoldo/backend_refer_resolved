@@ -8,5 +8,6 @@ router
     .get('/ticket/id/:id', TicketController.searchDataByid)
     .post('/ticket', TicketController.insertData)
     .delete('/ticket/id/:id', TicketController.deleteData)
+    .post('/filterDataByDate', TicketController.getTotTicketDate)
 
 module.exports = router    

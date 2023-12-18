@@ -37,5 +37,15 @@ class TicketController{
             return res.status(400).send({message: err.message})
         }
     }
+
+    static async getTotTicketDate(req, res){
+        const { dataInicial, dataFinal,  modo_pagamento, classe } = req.body
+        try{
+            const tickets = await ticketService.getTotTicketDate({ dataInicial, dataFinal, modo_pagamento, classe })
+            return res.status(200).send({status: 200, data: tickets})
+        } catch(err){
+            return res.status(400).send({message: err.message})
+        }
+    }
 }
 module.exports = TicketController

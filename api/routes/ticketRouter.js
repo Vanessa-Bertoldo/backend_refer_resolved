@@ -10,5 +10,6 @@ router
     .delete('/ticket/id/:id', TicketController.deleteData)
     .post('/filterDataByDate', TicketController.getTotTicketDate)
     .post('/filterPayment', TicketController.sumPayment)
+    .post('/groupTicket', TicketController.grupTicket)
 
 module.exports = router    

@@ -154,5 +154,37 @@ class TicketService{
         }
     }
 
+    async groupTicketByMonth(dto) {
+        try {
+            const resultado = await database.TB_TICKET.findAll({
+                attributes: [
+                    'modo_pagamento',
+                    [Sequelize.literal(`ROUND(SUM(valor_pago), 2)`), 'soma_total'],
+                    [Sequelize.fn('count', Sequelize.col('*')), 'quantidadeTickets'],
+                    [Sequelize.fn('MONTH', Sequelize.col('data')), 'mes'],
+                    [Sequelize.fn('YEAR', Sequelize.col('data')), 'ano'],
+                    [
+                        Sequelize.literal('GROUP_CONCAT(DISTINCT DATE_FORMAT(data, \'%Y-%m-%d\'))'),
+                        'datas',
+                    ],
+                ],
+                where: {
+                    matricula: dto.matricula,
+                },
+                group: ['modo_pagamento', 'ano', 'mes'], 
+                order: [
+                    [Sequelize.literal('ano, mes')],
+                ],
+                raw: true,
+            });
+        
+            console.log(resultado);
+            return resultado;
+        } catch (error) {
+            console.error('Erro ao obter soma por modo de pagamento e data:', error);
+            throw error;
+        }
+    }
+
 }
 module.exports = TicketService

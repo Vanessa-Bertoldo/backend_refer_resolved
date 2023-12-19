@@ -57,5 +57,16 @@ class TicketController{
             return res.status(400).send({message: err.message})
         }
     }
+
+    static async grupTicket(req, res){
+        const { matricula } = req.body
+
+        try{
+            const tickets = await ticketService.groupTicketByMonth({matricula})
+            return res.status(200).send({status: 200, data: tickets})
+        } catch(err){
+            return res.status(400).send({message: err.message})
+        }
+    }
 }
 module.exports = TicketController

@@ -26,7 +26,8 @@ class FichaService{
                 classe:             dto.classe,
                 tamanho:            dto.tamanho
             })
-            return newFicha
+            const fichas = await this.searchAllData()
+            return fichas
         } catch(err){
             throw new Error("Erro ao inserir dados no banco")
         }

@@ -1,17 +1,17 @@
 {
-  "test": {
+  "development": {
     "username": "root",
     "password": null,
-    "database": "NewRefector",
-    "host": "192.168.0.8",
-    "dialect": "mssql"
+    "database": "backresolved",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
   },
-  "development": {
+  "teste": {
     "username": "vanessa",
     "password": "123",
     "database": "backresolved",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mssql"
   },
   "production": {
     "username": "root",

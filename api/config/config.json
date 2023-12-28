@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
+    "username": "vanessa",
+    "password": "123",
     "database": "backresolved",
     "host": "127.0.0.1",
     "dialect": "mysql"
